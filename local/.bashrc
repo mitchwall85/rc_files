@@ -17,6 +17,8 @@ alias tf='tail -f'
 alias pytecplot='tec360-env -- python' # must have a pytecplot enviroment active
 alias cpath='pwd | xclip -sel clip'
 alias nv='nvim'
+alias tma='tmux attach-session -t '
+alias tmr='tmux rename-session '
 
 ## Rsync Folders
 alias myRsync_proj2local_full='rsync -av --progress --human-readable  miwa6095@login.rc.colorado.edu:/projects/miwa6095/ /home/mitch/summitProj/miwa6095/'

@@ -45,6 +45,8 @@ alias mpcModules="module purge; module load gcc; module load openmpi"
 alias cpath='pwd | xclip -sel clip'
 alias nv='nvim'
 alias sintNGPDL='sinteractive --reservation=ngpdl_small'
+alias tma='tmux attach-session -t '
+alias tmr='tmux rename-session '
 
 # python scripts
 export PATH="$PATH:/home/miwa6095/python/lemansPost/"

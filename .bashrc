@@ -9,7 +9,7 @@
 ## Aliases
 alias l='ls -lrth'
 alias c='clear'
-alias curcLogin='ssh miwa6095@login10.rc.colorado.edu'
+alias curcLogin='ssh -X miwa6095@login10.rc.colorado.edu'
 alias open='xdg-open'
 alias audioConnect='bluetoothctl connect 0C:8D:CA:17:CA:44'
 alias audioDisconnect='bluetoothctl disconnect 0C:8D:CA:17:CA:44'

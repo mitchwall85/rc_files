@@ -27,7 +27,7 @@ alias sq='squeue --user=miwa6095'
 alias sqit='squeue --user=miwa6095 --iterate=1'
 alias proj='cd /projects/miwa6095'
 alias c='clear'
-alias l='ls -lrth'
+alias l='ls -lrth --color=auto'
 alias scratch='cd /scratch/alpine/miwa6095'
 alias home='cd /home/miwa6095'
 alias bq='squeue --partition=blanca-ngpdl'
@@ -47,6 +47,7 @@ alias nv='nvim'
 alias sintNGPDL='sinteractive --reservation=ngpdl_small'
 alias tma='tmux attach-session -t '
 alias tmr='tmux rename-session '
+alias cpath='pwd | xclip -sel clip'
 
 # python scripts
 export PATH="$PATH:/home/miwa6095/python/lemansPost/"
@@ -63,6 +64,8 @@ function compLM() {
 	cd "$workingDir"  
 }
 
+# LS Colors
+LS_COLORS="di=34"
 
 ## SU2 things (old)
 # export SU2_RUN=/projects/miwa6095/su2/bin

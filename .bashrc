@@ -15,11 +15,11 @@ fi
 export PATH="/home/miwa6095/opt/bin/:$PATH"
 export PATH="/projects/miwa6095/lemans/lemans-common/tools/restart_interpolator/:$PATH"
 export PATH="/projects/miwa6095/monaco/source/monaco/bin:$PATH"
-
+export PATH="/home/miwa6095/job_monitor/lemans_mpc_curc:$PATH"
 module use --append ~/opt/modules
 
 # add ssh keys
-eval "$(ssh-agent -s)" 
+eval "$(ssh-agent -s)" > /dev/null 2>&1 
 ssh-add ~/.ssh/github
 
 # aliasies
@@ -42,12 +42,11 @@ alias howfuckedamionalpine="squeue --partition=amilan -u miwa6095 -o '''   %10i 
 alias howfuckedisalpine="squeue --partition=amilan -o '''   %10i %12P %10j %10u %2D %3C %10T %10L %20N %S'''"
 # alias compileLemans="cd /projects/miwa6095/lemans/source && "
 alias mpcModules="module purge; module load gcc; module load openmpi"
-alias cpath='pwd | xclip -sel clip'
 alias nv='nvim'
 alias sintNGPDL='sinteractive --reservation=ngpdl_small'
 alias tma='tmux attach-session -t '
 alias tmr='tmux rename-session '
-alias cpath='pwd | xclip -sel clip'
+alias cpath='echo -n $(pwd) | xclip -sel clip'
 
 # python scripts
 export PATH="$PATH:/home/miwa6095/python/lemansPost/"

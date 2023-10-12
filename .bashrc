@@ -7,7 +7,10 @@
 #####################
 
 ## Aliases
+alias curcLogin='ssh login10.rc.colorado.edu'
+alias desktopLogin='ssh 172.25.21.149'
 alias l='ls -lrth'
+alias dirOdrive='cd "/mnt/c/Users/mitch/OneDrive - UCB-O365"'
 alias c='clear'
 alias curcLogin='ssh -X miwa6095@login10.rc.colorado.edu'
 alias open='xdg-open'

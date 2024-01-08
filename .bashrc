@@ -1,18 +1,17 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
+cd ~
 #####################
 #### MWALL ADDED ####
 #####################
 
 ## Aliases
-alias curcLogin='ssh login10.rc.colorado.edu'
 alias desktopLogin='ssh 172.25.21.149'
 alias l='ls -lrth'
 alias dirOdrive='cd "/mnt/c/Users/mitch/OneDrive - UCB-O365"'
 alias c='clear'
-alias curcLogin='ssh -X miwa6095@login10.rc.colorado.edu'
+alias curcLogin='ssh -X miwa6095@login13.rc.colorado.edu'
 alias open='xdg-open'
 alias audioConnect='bluetoothctl connect 0C:8D:CA:17:CA:44'
 alias audioDisconnect='bluetoothctl disconnect 0C:8D:CA:17:CA:44'

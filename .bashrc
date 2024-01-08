@@ -9,7 +9,7 @@
 ## Aliases
 alias l='ls -lrth'
 alias c='clear'
-alias curcLogin='ssh -X miwa6095@login10.rc.colorado.edu'
+alias curcLogin='ssh -X miwa6095@login13.rc.colorado.edu'
 alias open='xdg-open'
 alias audioConnect='bluetoothctl connect 0C:8D:CA:17:CA:44'
 alias audioDisconnect='bluetoothctl disconnect 0C:8D:CA:17:CA:44'
@@ -44,7 +44,7 @@ export PATH=/home/mitch/software/cmake/cmake-2.8.8-Linux-i386/bin:$PATH
 export CDS_LIC_FILE=5280@10.225.226.136
 # export PATH=/opt/Fidelity/Pointwise/PointwiseV18.6R4:$PATH
 # temp
-export PATH="/home/mitch/odrive-agent-mount/OneDrive For Business/CUBoulder/NGPDL/rocketModel/python/postProc":$PATH
+# export PATH="/home/mitch/odrive-agent-mount/OneDrive For Business/CUBoulder/NGPDL/rocketModel/python/postProc":$PATH
 export PATH="/home/mitch/software/GRAM/GRAM_Suite_1.5.0__1_/GRAM Suite 1.5/Linux":$PATH
 export PATH="/home/mitch/.local/bin":$PATH
 
@@ -60,6 +60,10 @@ function cd..() {
 # scp to local with a curc data transfer node (no password), copies to current directory
 function scpdtn() {
   scp miwa6095@dtn.rc.int.colorado.edu:$1 .;
+}
+# for a folder
+function scprdtn() {
+  scp -r miwa6095@dtn.rc.int.colorado.edu:$1 .;
 }
 
 # scp to curc with a curc data transfer node (no password), copies to current directory
@@ -261,6 +265,14 @@ fi
 
 export GRIDPRO=/home/mitch/GridPro
 export PYTHONPATH=/home/mitch/GridPro/lib:$PYTHONPATH
+
+export PATH=$GRIDPRO/bin:$PATH
+export PATH=$GRIDPRO/lc_mngr:$PATH
+export PYTHONPATH=/home/mitch/software/gridpro/GridPro/lib:$PYTHONPATH
+
+export PATH=$GRIDPRO/bin:$PATH
+export PATH=$GRIDPRO/lc_mngr:$PATH
+export PYTHONPATH=/home/mitch/software/gridpro/GridPro/lib:$PYTHONPATH
 
 export PATH=$GRIDPRO/bin:$PATH
 export PATH=$GRIDPRO/lc_mngr:$PATH

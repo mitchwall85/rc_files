@@ -9,7 +9,7 @@
 ## Aliases
 alias l='ls -lrth'
 alias c='clear'
-alias curcLogin='ssh -X miwa6095@login13.rc.colorado.edu'
+alias curcLogin='ssh -Y miwa6095@login13.rc.colorado.edu'
 alias open='xdg-open'
 alias audioConnect='bluetoothctl connect 0C:8D:CA:17:CA:44'
 alias audioDisconnect='bluetoothctl disconnect 0C:8D:CA:17:CA:44'
@@ -19,6 +19,7 @@ alias cpath='pwd | tr -d "\n" | xclip -sel clip'
 alias nv='nvim'
 alias tma='tmux attach-session -t '
 alias tmr='tmux rename-session '
+alias fd="fdfind"
 
 ## Rsync Folders
 alias myRsync_proj2local_full='rsync -av --progress --human-readable  miwa6095@login.rc.colorado.edu:/projects/miwa6095/ /home/mitch/summitProj/miwa6095/'

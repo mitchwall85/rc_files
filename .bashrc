@@ -17,9 +17,15 @@ export PATH="/projects/miwa6095/lemans/lemans-common/tools/restart_interpolator/
 export PATH="/projects/miwa6095/monaco/source/monaco/bin:$PATH"
 export PATH="/home/miwa6095/job_monitor/lemans_mpc_curc:$PATH"
 module use --append ~/opt/modules
+export PATH="/home/miwa6095/job_monitor/resub_jobs_curc:$PATH" # crontab resubmission script
+export PATH="/home/miwa6095/opt/ripgrep:$PATH"
+export PATH="/home/miwa6095/opt/fdfind:$PATH"
 
 # add ssh keys
-eval "$(ssh-agent -s)" > /dev/null 2>&1 
+# check if ssh session alrady exists so CURC doesnt yell at me
+#if [ -z "$SSH_AUTH_SOCK" ] ; then
+#  eval "$(ssh-agent -s)" > /dev/null 2>&1
+#fi
 ssh-add ~/.ssh/github
 
 # aliasies
@@ -34,19 +40,22 @@ alias bq='squeue --partition=blanca-ngpdl'
 alias lb='module load slurm/blanca'
 alias tf='tail -f'
 alias clearLemansResults='rm *.plt *.out convergence.dat residuals.dat restart.dat tecplot_convergence.dat monitors.dat'
-alias clearMonacoResults='rm graph.dat evalcell.log out.dat weight.dat MC* monaco.dat monaco.log *stats *plt link.dat'
-alias clearMPCResults='rm Hsurface.dat Hrestart.dat weight_hyb.dat MPC.log grid.ngp grid.unf output.* KnGLL_Info* HZone_output*'
-alias sacct='sacct --format='JobID,JobName,AllocCPUS,State,CPUTime,Reqmem,MaxRSS,Submit,End,Elapsed''
+alias clearMonacoResults='rm graph.dat evalcell.log out.dat MC* monaco.dat monaco.log *stats *plt link.dat load.dat'
+alias clearMPCResults='rm Hsurface.dat Hrestart.dat MPC.log grid.ngp grid.unf output.* KnGLL_Info* HZone_output* output*'
+alias clearMPCResults_restart='clearLemansResults; clearMonacoResults; clearMPCResults'
+alias jobInfo='sacct --format='JobID,JobName,AllocCPUS,State,CPUTime,Reqmem,MaxRSS,Submit,End,Elapsed''
 alias howfuckedisblanca="squeue --partition=blanca-ngpdl -o '''   %10i %12P %10j %10u %2D %3C %10T %10L %20N %S'''"
 alias howfuckedamionalpine="squeue --partition=amilan -u miwa6095 -o '''   %10i %12P %10j %10u %2D %3C %10T %10L %20N %S'''"
 alias howfuckedisalpine="squeue --partition=amilan -o '''   %10i %12P %10j %10u %2D %3C %10T %10L %20N %S'''"
 # alias compileLemans="cd /projects/miwa6095/lemans/source && "
-alias mpcModules="module purge; module load gcc; module load openmpi"
+alias mpcModules="module purge; module load gcc/6.1.0; module load openmpi/1.10.2"
+alias monacoModules="module purge; module load intel/17.4; module load impi/17.3"
 alias nv='nvim'
 alias sintNGPDL='sinteractive --reservation=ngpdl_small'
 alias tma='tmux attach-session -t '
 alias tmr='tmux rename-session '
 alias cpath='echo -n $(pwd) | xclip -sel clip'
+alias mpcRepoActivate='eval "$(ssh-agent -s)"; ssh-add /home/miwa6095/.ssh/github_mpc'
 
 # python scripts
 export PATH="$PATH:/home/miwa6095/python/lemansPost/"

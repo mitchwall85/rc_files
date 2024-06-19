@@ -7,7 +7,7 @@ cd ~
 #####################
 
 ## Aliases
-alias desktopLogin='ssh 172.25.21.149'
+alias desktopLogin='ssh mitch@172.25.21.149'
 alias l='ls -lrth'
 alias dirOdrive='cd "/mnt/c/Users/mitch/OneDrive - UCB-O365"'
 alias c='clear'

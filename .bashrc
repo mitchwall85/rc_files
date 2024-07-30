@@ -60,16 +60,21 @@ function cd..() {
 
 # scp to local with a curc data transfer node (no password), copies to current directory
 function scpdtn() {
-  scp miwa6095@dtn.rc.int.colorado.edu:$1 .;
+  scp "miwa6095@dtn.rc.colorado.edu:$1" .;
 }
 # for a folder
 function scprdtn() {
-  scp -r miwa6095@dtn.rc.int.colorado.edu:$1 .;
+  scp -r miwa6095@dtn.rc.colorado.edu:$1 .;
 }
 
 # scp to curc with a curc data transfer node (no password), copies to current directory
 function scptodtn() {
-  scp $1 miwa6095@dtn.rc.int.colorado.edu:$2;
+  scp $1 miwa6095@dtn.rc.colorado.edu:$2;
+}
+
+# for a folder 
+function scprtodtn() {
+  scp -r $1 miwa6095@dtn.rc.colorado.edu:$2;
 }
 
 

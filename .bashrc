@@ -20,6 +20,10 @@ module use --append ~/opt/modules
 export PATH="/home/miwa6095/job_monitor/resub_jobs_curc:$PATH" # crontab resubmission script
 export PATH="/home/miwa6095/opt/ripgrep:$PATH"
 export PATH="/home/miwa6095/opt/fdfind:$PATH"
+export PATH="/projects/miwa6095/monaco/source/monaco/afm/bin:$PATH"
+
+# Dakota
+export PATH="/projects/miwa6095/Dakota_UQ_common/CURC_Install/Dakota/bin:$PATH"
 
 # add ssh keys
 # check if ssh session alrady exists so CURC doesnt yell at me
@@ -40,7 +44,7 @@ alias bq='squeue --partition=blanca-ngpdl'
 alias lb='module load slurm/blanca'
 alias tf='tail -f'
 alias clearLemansResults='rm *.plt *.out convergence.dat residuals.dat restart.dat tecplot_convergence.dat monitors.dat'
-alias clearMonacoResults='rm graph.dat evalcell.log out.dat MC* monaco.dat monaco.log *stats *plt link.dat load.dat'
+alias clearMonacoResults='rm graph.dat evalcell.log out.dat MC* monaco.dat monaco.log *stats *plt link.dat load.dat tscale* weight* grid.unf grid.ngp'
 alias clearMPCResults='rm Hsurface.dat Hrestart.dat MPC.log grid.ngp grid.unf output.* KnGLL_Info* HZone_output* output*'
 alias clearMPCResults_restart='clearLemansResults; clearMonacoResults; clearMPCResults'
 alias jobInfo='sacct --format='JobID,JobName,AllocCPUS,State,CPUTime,Reqmem,MaxRSS,Submit,End,Elapsed''
@@ -48,14 +52,16 @@ alias howfuckedisblanca="squeue --partition=blanca-ngpdl -o '''   %10i %12P %10j
 alias howfuckedamionalpine="squeue --partition=amilan -u miwa6095 -o '''   %10i %12P %10j %10u %2D %3C %10T %10L %20N %S'''"
 alias howfuckedisalpine="squeue --partition=amilan -o '''   %10i %12P %10j %10u %2D %3C %10T %10L %20N %S'''"
 # alias compileLemans="cd /projects/miwa6095/lemans/source && "
-alias mpcModules="module purge; module load gcc/6.1.0; module load openmpi/1.10.2"
-alias monacoModules="module purge; module load intel/17.4; module load impi/17.3"
+alias mpcModules="module purge; module load gcc/10.3.0; module load openmpi/4.1.1"
+alias monacoModules="module purge; module load intel; module load impi"
 alias nv='nvim'
 alias sintNGPDL='sinteractive --reservation=ngpdl_small'
 alias tma='tmux attach-session -t '
 alias tmr='tmux rename-session '
 alias cpath='echo -n $(pwd) | xclip -sel clip'
-alias mpcRepoActivate='eval "$(ssh-agent -s)"; ssh-add /home/miwa6095/.ssh/github_mpc'
+alias gitRepoActivate='eval "$(ssh-agent -s)"; ssh-add /home/miwa6095/.ssh/github_mpc'
+alias numJobsSubmitted='echo $(( $(squeue -u $USER | wc -l) - 1 ))'
+alias activateNGPDLenv='module load anaconda; conda activate NGPDL_env'
 
 # python scripts
 export PATH="$PATH:/home/miwa6095/python/lemansPost/"

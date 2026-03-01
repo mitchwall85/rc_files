@@ -5,13 +5,16 @@ cd ~
 #####################
 #### MWALL ADDED ####
 #####################
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/leonardo
 
 ## Aliases
 alias desktopLogin='ssh mitch@172.25.21.149'
+alias leoLogin='ssh -X a08trb30@login05-ext.leonardo.cineca.it'
 alias l='ls -lrth'
 alias dirOdrive='cd "/mnt/c/Users/mitch/OneDrive - UCB-O365"'
 alias c='clear'
-alias curcLogin='ssh -Y miwa6095@login-ci2.rc.colorado.edu'
+alias curcLogin='ssh -Y miwa6095@login-ci3.rc.colorado.edu'
 alias open='xdg-open'
 alias audioConnect='bluetoothctl connect 0C:8D:CA:17:CA:44'
 alias audioDisconnect='bluetoothctl disconnect 0C:8D:CA:17:CA:44'
@@ -21,6 +24,7 @@ alias cpath='pwd | tr -d "\n" | xclip -sel clip'
 alias nv='nvim'
 alias tma='tmux attach-session -t '
 alias tmr='tmux rename-session '
+alias wexp='explorer.exe .'
 
 ## Rsync Folders
 alias myRsync_proj2local_full='rsync -av --progress --human-readable  miwa6095@login.rc.colorado.edu:/projects/miwa6095/ /home/mitch/summitProj/miwa6095/'
@@ -60,13 +64,15 @@ function cd..() {
 }
 
 # scp to local with a curc data transfer node (no password), copies to current directory
-function scpdtn() {
-  scp miwa6095@dtn.rc.int.colorado.edu:$1 .;
+function scp() {
+  #scp miwa6095@dtn.rc.int.colorado.edu:$1 .;
+  scp a08trb30@login05-ext.leonardo.cineca.it:$1 .;
 }
 
 # scp to curc with a curc data transfer node (no password), copies to current directory
-function scptodtn() {
-  scp $1 miwa6095@dtn.rc.int.colorado.edu:$2;
+function scpto() {
+  # scp $1 miwa6095@dtn.rc.int.colorado.edu:$2;
+  scp $1 a08trb30@login05-ext.leonardo.cineca.it:$2;
 }
 
 

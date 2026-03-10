@@ -9,21 +9,16 @@
 ## Aliases
 alias l='ls -lrth'
 alias c='clear'
-alias curcLogin='ssh -Y miwa6095@login-ci3.rc.colorado.edu'
+alias curcLogin='ssh miwa6095@login10.rc.colorado.edu'
 alias open='xdg-open'
-alias audioConnect='bluetoothctl connect 34:F0:43:62:81:0D'
-alias audioDisconnect='bluetoothctl disconnect 34:F0:43:62:81:0D'
+alias audioConnect='bluetoothctl connect 0C:8D:CA:17:CA:44'
+alias audioDisconnect='bluetoothctl disconnect 0C:8D:CA:17:CA:44'
 alias tf='tail -f'
 alias pytecplot='tec360-env -- python' # must have a pytecplot enviroment active
-alias cpath='pwd | tr -d "\n" | xclip -sel clip'
+alias cpath='pwd | xclip -sel clip'
 alias nv='nvim'
 alias tma='tmux attach-session -t '
 alias tmr='tmux rename-session '
-alias fd="fdfind"
-alias mpcRepoActivate='eval "$(ssh-agent -s)"; ssh-add /home/miwa6095/.ssh/github_mpc'
-alias pw="CDS_LIC_FILE=5280@ngpdl-licenses.int.colorado.edu /opt/Fidelity/Pointwise/Pointwise2022.2.1/pointwise &"
-alias matlab="$HOME/software/MATLAB/R2023b_install/bin/matlab -softwareopengl"
-
 
 ## Rsync Folders
 alias myRsync_proj2local_full='rsync -av --progress --human-readable  miwa6095@login.rc.colorado.edu:/projects/miwa6095/ /home/mitch/summitProj/miwa6095/'
@@ -42,17 +37,21 @@ alias dirNGPDL='cd "/home/mitch/odrive-agent-mount/OneDrive For Business/CUBould
 export PATH=/home/mitch/Documents/tempNGPDL/python/postProc:$PATH
 export PATH=/home/mitch/odrive-agent/bin:$PATH
 export PATH=/usr/local/tecplot/360ex_2022r2/bin:$PATH
+export PATH=/home/mitch/software/MATLAB/R2022b/bin:$PATH
 export PATH=/home/mitch/.local/bin:$PATH
 export PATH=/home/mitch/software/zotero/Zotero_linux-x86_64:$PATH
 export PATH=/home/mitch/software/cmake/cmake-2.8.8-Linux-i386/bin:$PATH
-
-# export PATH="/home/mitch/odrive-agent-mount/OneDrive For Business/CUBoulder/NGPDL/rocketModel/python/postProc":$PATH
+export CDS_LIC_FILE=5280@10.225.226.136
+# export PATH=/opt/Fidelity/Pointwise/PointwiseV18.6R4:$PATH
+# temp
+export PATH="/home/mitch/odrive-agent-mount/OneDrive For Business/CUBoulder/NGPDL/rocketModel/python/postProc":$PATH
 export PATH="/home/mitch/software/GRAM/GRAM_Suite_1.5.0__1_/GRAM Suite 1.5/Linux":$PATH
 export PATH="/home/mitch/.local/bin":$PATH
+
 # color terminal
 export PS1='\[\e[1;34m\]\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;33m\]\w\[\e[0m\]\$ '
 
-  # Functions
+# Functions
 # move up multiple directories
 function cd..() {
   cd $(printf "%0.s../" $(seq 1 $1 ));
@@ -60,35 +59,12 @@ function cd..() {
 
 # scp to local with a curc data transfer node (no password), copies to current directory
 function scpdtn() {
-  scp "miwa6095@dtn.rc.colorado.edu:$1" .;
-}
-# for a folder
-function scprdtn() {
-  scp -r miwa6095@dtn.rc.colorado.edu:$1 .;
+  scp miwa6095@dtn.rc.int.colorado.edu:$1 .;
 }
 
 # scp to curc with a curc data transfer node (no password), copies to current directory
 function scptodtn() {
-  scp $1 miwa6095@dtn.rc.colorado.edu:$2;
-}
-
-# for a folder 
-function scprtodtn() {
-  scp -r $1 miwa6095@dtn.rc.colorado.edu:$2;
-}
-
-# for a folder 
-function rsyncEvalPlt() {
-  rsync -av --include='eval_*' --include='*.plt' --exclude='*' miwa6095@dtn.rc.colorado.edu:$1/ .
-}
-
-# for a folder 
-function rsyncEvalPlt_setupFiles() {
-  rsync -av --include='eval_*' --include='vhs.dat' --include='chem.dat' --include='wall.dat' --include='surface.plt' --exclude='*' miwa6095@dtn.rc.colorado.edu:$1/ .
-}
-
-function rsyncPlt() {
-  rsync -avI --include="*/" --include='*.plt' --exclude='*' miwa6095@dtn.rc.colorado.edu:$1/ .
+  scp $1 miwa6095@dtn.rc.int.colorado.edu:$2;
 }
 
 
@@ -285,14 +261,6 @@ fi
 
 export GRIDPRO=/home/mitch/GridPro
 export PYTHONPATH=/home/mitch/GridPro/lib:$PYTHONPATH
-
-export PATH=$GRIDPRO/bin:$PATH
-export PATH=$GRIDPRO/lc_mngr:$PATH
-export PYTHONPATH=/home/mitch/software/gridpro/GridPro/lib:$PYTHONPATH
-
-export PATH=$GRIDPRO/bin:$PATH
-export PATH=$GRIDPRO/lc_mngr:$PATH
-export PYTHONPATH=/home/mitch/software/gridpro/GridPro/lib:$PYTHONPATH
 
 export PATH=$GRIDPRO/bin:$PATH
 export PATH=$GRIDPRO/lc_mngr:$PATH

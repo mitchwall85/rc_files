@@ -33,7 +33,7 @@ alias myRsync_local2proj_nozzle='rsync -av --update  /home/mitch/summitProj/miwa
 
 # Alias Paths
 alias dirSummit='cd /home/mitch/summitProj/miwa6095'
-alias activateNGPDLenv='source "/home/mitch/odrive-agent-mount/OneDrive For Business/CUBoulder/NGPDL/python/NGPDLenv/bin/activate"'
+alias activateNGPDLenv='source "/home/mitch/venvs/NGPDLenv/bin/activate"'
 alias dirOdrive='cd "/home/mitch/odrive-agent-mount/OneDrive For Business"'
 alias dirLocal='cd /home/mitch/local_data'
 alias dirNGPDL='cd "/home/mitch/odrive-agent-mount/OneDrive For Business/CUBoulder/NGPDL"'
@@ -41,6 +41,7 @@ alias dirNGPDL='cd "/home/mitch/odrive-agent-mount/OneDrive For Business/CUBould
 # Paths
 export PATH=/home/mitch/Documents/tempNGPDL/python/postProc:$PATH
 export PATH=/home/mitch/odrive-agent/bin:$PATH
+export PATH=/home/mitch/.odrive-agent/bin/:$PATH # new odrive path
 export PATH=/usr/local/tecplot/360ex_2022r2/bin:$PATH
 export PATH=/home/mitch/.local/bin:$PATH
 export PATH=/home/mitch/software/zotero/Zotero_linux-x86_64:$PATH
